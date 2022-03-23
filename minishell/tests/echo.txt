@@ -1,0 +1,488 @@
+/* Numbered List of (Potential) Problems */
+//	= OK
+0	= bash interprets ';' differently
+1	= char escaping with \ does not work like in bash
+2	= the outermost quotes should not be printed out 
+3	= output redirection does not work properly when not in the last piped command
+4	= non-existing env. variables should not be printed out
+5	= multiple output redirection is not implemented
+6	= incorrectly expanded env. variables
+7	= incorrectly handled pipe
+8	= $# is not handled :)
+
+//			echo
+//			echo "$"
+//			echo "$%%%%jlkjtwejt"
+//			echo "$USER"
+//			echo "$USER"
+//			echo "%%$"
+//			echo "1234"
+//			echo "1234\"
+//			echo "123\!456"
+//			echo "123\"456" 			KO
+//			echo "123\'456"
+//			echo "12\34"
+//			echo "1\a234"
+//			echo ";;;"
+//			echo "\!"
+//			echo "\""					KO
+//			echo "\#"
+//			echo "\$"					KO
+//			echo "\%"
+//			echo "\&"
+//			echo "\'"
+//			echo "\("
+//			echo "\)"
+//			echo "\*"
+//			echo "\+"
+//			echo "\,"
+//			echo "\-"
+//			echo "\."
+//			echo "\/"
+//			echo "\0"
+//			echo "\1"
+//			echo "\1234"
+//			echo "\2"
+//			echo "\3"
+//			echo "\4"
+//			echo "\5"
+//			echo "\6"
+//			echo "\7"
+//			echo "\8"
+//			echo "\9"
+//			echo "\:"
+//			echo "\;"
+//			echo "\<"
+//			echo "\="
+//			echo "\>"
+//			echo "\?"
+//			echo "\@"
+//			echo "\A"
+//			echo "\B"
+//			echo "\C"
+//			echo "\D"
+//			echo "\E"
+//			echo "\F"
+//			echo "\G"
+//			echo "\H"
+//			echo "\I"
+//			echo "\J"
+//			echo "\K"
+//			echo "\L"
+//			echo "\M"
+//			echo "\N"
+//			echo "\O"
+//			echo "\P"
+//			echo "\Q"
+//			echo "\R"
+//			echo "\S"
+//			echo "\T"
+//			echo "\U"
+//			echo "\V"
+//			echo "\W"
+//			echo "\X"
+//			echo "\Y"
+//			echo "\Z"
+//			echo "\["
+//			echo "\\"				KO
+//			echo "\]"
+//			echo "\^"
+//			echo "\_"
+//			echo "\`"
+//			echo "\a"
+//			echo "\b"
+//			echo "\c"
+//			echo "\d"
+//			echo "\e"
+//			echo "\f"
+//			echo "\g"
+//			echo "\h"
+//			echo "\i"
+//			echo "\j"
+//			echo "\k"
+//			echo "\l"
+//			echo "\m"
+//			echo "\n"
+//			echo "\o"
+//			echo "\p"
+//			echo "\poep"
+//			echo "\q"
+//			echo "\r"
+//			echo "\s"
+//			echo "\t"
+//			echo "\u"
+//			echo "\v"
+//			echo "\w"
+//			echo "\x"
+//			echo "\y"
+//			echo "\z"
+//			echo "\{"
+//			echo "\|"
+//			echo "\}"
+//			echo "\~"
+//			echo "hallo daar"
+//			echo "hallo"maran"		KO
+//			echo "hallo$"
+//			echo "poep\'"
+//			echo $
+//			echo $%%%%jlkjtwejt				
+//			echo $/
+//			echo $?
+//			echo $USER
+//			echo $USER "$USER" '$USER'
+//			echo $USER"				KO
+//			echo %%$
+//			echo '"\$USER"'
+//			echo '$PWD'
+//			echo '$USER'
+//			echo '1234'
+//			echo '1234\'
+//			echo '1234\\'
+//			echo '12\34'
+//			echo '1\a234'
+//			echo ';;' 
+//			echo '\!'
+//			echo '\"'
+//			echo '\#'
+//			echo '\$'
+//			echo '\$?'
+//			echo '\$USER'
+//			echo '\%'
+//			echo '\&'
+//			echo '\''				KO
+//			echo '\('
+//			echo '\)'
+//			echo '\*'
+//			echo '\+'
+//			echo '\,'
+//			echo '\-'
+//			echo '\.'
+//			echo '\/'
+//			echo '\0'
+//			echo '\1'
+//			echo '\1234'
+//			echo '\2'
+//			echo '\3'
+//			echo '\4'
+//			echo '\5'
+//			echo '\6'
+//			echo '\7'
+//			echo '\8'
+//			echo '\9'
+//			echo '\:'
+//			echo '\;'
+//			echo '\<'
+//			echo '\='
+//			echo '\>'
+//			echo '\?'
+//			echo '\@'
+//			echo '\A'
+//			echo '\B'
+//			echo '\C'
+//			echo '\D'
+//			echo '\E'
+//			echo '\F'
+//			echo '\G'
+//			echo '\H'
+//			echo '\I'
+//			echo '\J'
+//			echo '\K'
+//			echo '\L'
+//			echo '\M'
+//			echo '\N'
+//			echo '\O'
+//			echo '\P'
+//			echo '\Q'
+//			echo '\R'
+//			echo '\S'
+//			echo '\T'
+//			echo '\U'
+//			echo '\V'
+//			echo '\W'
+//			echo '\X'
+//			echo '\Y'
+//			echo '\Z'
+//			echo '\['
+//			echo '\\'
+//			echo '\]'
+//			echo '\^'
+//			echo '\_'
+//			echo '\`'
+//			echo '\a'
+//			echo '\b'
+//			echo '\c'
+//			echo '\d'
+//			echo '\e'
+//			echo '\f'
+//			echo '\g'
+//			echo '\h'
+//			echo '\i'
+//			echo '\j'
+//			echo '\k'
+//			echo '\l'
+//			echo '\m'
+//			echo '\n'
+//			echo '\o'
+//			echo '\p'
+//			echo '\q'
+//			echo '\r'
+//			echo '\s'
+//			echo '\t'
+//			echo '\u'
+//			echo '\v'
+//			echo '\w'
+//			echo '\x'
+//			echo '\y'
+//			echo '\z'
+//			echo '\{'
+//			echo '\|'
+//			echo '\}'
+//			echo '\~'
+//			echo 'hallo$USER'
+//			echo 'hallo\$USER'
+//			echo 'how are you'
+//			echo 'ma\'									Hij ziet de \ niet als escape, print gewoon \
+//			echo -nn -nnnnnnn -n -nnnn -nnnh
+//			echo > working.txt
+//			echo adding stuff >> working.txt
+//			echo hallo
+//			echo hallo 'ma\"ran' siemons
+//			echo hallo 'ma\'ran' siemons			KO
+//			echo hallo daar
+//			echo hallo daar | echo hoi maran
+//			echo hallo | echo hoi
+//			echo hallo | echo hoi | cat
+//			echo hoi
+//			echo more stuff >> working.txt
+//			echo | cd .. | pwd
+//			echo | poep
+//			echo"
+//			echojhdfjhjdkh
+//			ls filedoesnotexist | grep notme | echo "TEST"
+
+[0, 1]		echo 00\\\'pp ; echo 00\\\\\'pp
+[0, 1]		echo 00\\\\'pp' ; echo “./hello”. ; echo ./hello ; echo ello
+[0]			Echo ; echo \n ' \n this is the; "first line"' ; echo "and right here;;; 'We have the second'" ; echo and" a fe"'w 'here'; with some slash and quotes   .'   '\' ; echo '\\' ; echo "\\" ; echo    "\"" ; echo   \\ ; echo   \' ; echo   \" "\\"    "\""   \\   \'   \"
+[0]			echo $PWD ; echo $HOME ; echo "$PWD" ; echo '$PWD' ; echo "$HOME"
+[0]			echo -n -n -n $potato$orange; unset
+[0]			echo > doethet ; echo hoi >> doethet "of niet" ; echo clear > "doethet" ; echo test > working.txt ; echo > newfile.txt hardertest
+[0]			echo hallo ; echo hoi
+[0]			echo hallo daar ; echo hoi maran
+[0]			orange potato; echo $potato$orange
+[1, 2, 4]	echo /$"123$USER"
+[1, 2, 6]	echo '$USER'$USER\$USER/"$USER"
+[1, 2, 6]	echo hallo"1234"maran"$USER"'/$USER'"/$USER"'poep''poep2'"maran"'ellende'END
+[1, 2]		echo \"1234"
+[1, 3, 5]	echo hallo >x1 >x2 >x3 ; echo hoi
+[1, 3, 5]	echo hallo | echo hoi > y1 >y2 ; cat -e
+[1, 3, 5]	echo hoi > y1 >y2 ; cat -e
+[1, 5]		echo hallo ; echo poep >x1 >x2						
+[1, 6]		echo "123\\456"
+[1, 6]		echo "\\$USER"
+[1]			echo "'\$USER'"
+[1]			echo "1234" \; echo hoi
+[1]			echo "1234\\"
+[1]			echo "123\"456"
+[1]			echo "123\"456"
+[1]			echo "123\$456"
+[1]			echo "123\`456"
+[1]			echo "\$USER"							
+[1]			echo "\\hallo"
+[1]			echo "hallo\"\poep"
+[1]			echo "hallo\"\poep"
+[1]			echo "hallo\\hoi"
+[1]			echo "poep\"
+[1]			echo "poep\""
+[1]			echo '1234' \; echo hoi
+[1]			echo /$"123$USER"
+[1]			echo \!
+[1]			echo \"
+[1]			echo \"
+[1]			echo \"test\"
+[1]			echo \#
+[1]			echo \$
+[1]			echo \$?
+[1]			echo \%
+[1]			echo \&
+[1]			echo \'
+[1]			echo \(
+[1]			echo \)
+[1]			echo \*
+[1]			echo \+
+[1]			echo \,
+[1]			echo \-
+[1]			echo \.
+[1]			echo \/
+[1]			echo \0
+[1]			echo \1
+[1]			echo \1
+[1]			echo \2
+[1]			echo \3
+[1]			echo \4
+[1]			echo \5
+[1]			echo \6
+[1]			echo \7
+[1]			echo \8
+[1]			echo \9
+[1]			echo \:
+[1]			echo \;
+[1]			echo \<
+[1]			echo \=
+[1]			echo \>
+[1]			echo \?
+[1]			echo \@
+[1]			echo \A
+[1]			echo \B
+[1]			echo \C
+[1]			echo \D
+[1]			echo \E
+[1]			echo \F
+[1]			echo \G
+[1]			echo \H
+[1]			echo \I
+[1]			echo \J
+[1]			echo \K
+[1]			echo \L
+[1]			echo \M
+[1]			echo \N
+[1]			echo \O
+[1]			echo \P
+[1]			echo \Q
+[1]			echo \R
+[1]			echo \S
+[1]			echo \T
+[1]			echo \U
+[1]			echo \V
+[1]			echo \W
+[1]			echo \X
+[1]			echo \Y
+[1]			echo \Z
+[1]			echo \[
+[1]			echo \\
+[1]			echo \]
+[1]			echo \^
+[1]			echo \_
+[1]			echo \`
+[1]			echo \a
+[1]			echo \a
+[1]			echo \b
+[1]			echo \b
+[1]			echo \c
+[1]			echo \c
+[1]			echo \d
+[1]			echo \d
+[1]			echo \e
+[1]			echo \e
+[1]			echo \f
+[1]			echo \g
+[1]			echo \h
+[1]			echo \i
+[1]			echo \j
+[1]			echo \k
+[1]			echo \l
+[1]			echo \m
+[1]			echo \n
+[1]			echo \o
+[1]			echo \p
+[1]			echo \poep
+[1]			echo \q
+[1]			echo \r
+[1]			echo \s
+[1]			echo \t
+[1]			echo \u
+[1]			echo \v
+[1]			echo \w
+[1]			echo \x
+[1]			echo \y
+[1]			echo \z
+[1]			echo \{
+[1]			echo \|
+[1]			echo \}
+[1]			echo \~
+[1]			echo hallo 'ma\'ran'' siemons
+[1]			echo hallo$\\abc
+[1]			echo hallo$\abc
+[1]			echo “$\hallo”
+[2, 4]		echo $hallo"poep"
+[2, 4]		echo hallo"$POEP"abc
+[2, 6]		echo "$USER"'/$USER'
+[2, 6]		echo hallo"$USER"abc
+[2]			echo 'poep''poep2'"maran"'ellende'END
+[2]			echo 'poep2'"maran"'ellende'
+[2]			echo 123"hallo$"456
+[2]			echo > "hardesttest.txt"
+[2]			echo hallo""
+[2]			echo hallo"$"abc
+[3, 5]		echo hallo >x1 >x2 >x3 | echo hoi
+[3, 5]		echo hallo | echo hoi > y1 >y2 | cat -e
+[3]			echo > ilovewords.txt count me ; wc ilovewords.txt
+[3]			echo DOET HET NIET > test1 | cat test1
+[3]			echo hallo >x1 >x2 >x3 | echo hoi
+[4, 6]		echo "$halllo###"
+[4, 6]		echo "hallo$USER***$USER$2$"
+[4, 6]		echo hallo$USER***$USER$2$
+[4]			echo "$2$*"
+[4]			echo "$222"
+[4]			echo "$53535"
+[4]			echo "$@@@lkgj"
+[4]			echo "$USER_"
+[4]			echo "$_poep"
+[4]			echo "$a5aap"
+[4]			echo "abc$POEPdef"
+[4]			echo "abc$USER123"
+[4]			echo "abc$USERdef"
+[4]			echo "hoi$USERmaran"
+[4]			echo $1 234
+[4]			echo $1234
+[4]			echo $2$*
+[4]			echo $2$4
+[4]			echo $222
+[4]			echo $@@@lkgj
+[4]			echo $POEP
+[4]			echo $POEP $MEERPOEP
+[4]			echo $POEP hallo
+[4]			echo $POEP hallo
+[4]			echo $TEST
+[4]			echo $USER9582309582529
+[4]			echo $USER_
+[4]			echo $USERhallo
+[4]			echo $_1234
+[4]			echo $_poep
+[4]			echo $a5aap
+[4]			echo $halllo###
+[4]			echo $hallo
+[4]			echo $hallo"poep"
+[4]			echo abc$POEPdef
+[4]			echo abc$POEPdef
+[4]			echo abc$USER123
+[4]			echo abc$USER123
+[4]			echo abc$USERdef
+[4]			echo abc$USERdef
+[4]			echo hallo $POEP
+[5]			echo dit > test1 gaat > test2 goed > test3
+[5]			echo dit > test1 gaat > test2 goed > test3 > test4
+[5]			echo hallo <file1 >file2
+[5]			echo hallo >file1 >file2
+[5]			echo hallo >file1 >file2 >>file3 maran siemons
+[5]			echo hallo >file1 >file2 maran
+[5]			echo hallo | echo poep >x1 >x2
+[6]			echo "$USER'"
+[6]			echo "$USER9582309582529"
+[2, 6]		echo $"USERhallo"
+[2, 6]		echo $"\hallo"
+[2, 6]		echo $"etet"
+[2, 6]		echo $"hallo"
+[2, 6]		echo $USER""
+[6]			echo $USER'
+[2, 6]		echo '$USER'$USER
+[6]			echo 123$USER----
+[6]			echo 123$USER----
+[6]			echo 123$USER----$
+[6]			echo 123$USER----$
+[2, 6]		echo \'1234'
+[6]			echo hallo$"POEP"
+[6]			echo hallo$"USER"
+[6]			echo hallo$'USER'
+[7]			cat working.txt | grep stuff | echo tim
+[8]			echo "$####jgklj"
+[8]			echo $?###jgklj$USER

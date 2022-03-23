@@ -1,0 +1,91 @@
+/* Numbered List of (Potential) Problems */
+//	= OK
+0	= bash interprets ';' differently
+1	= char escaping with \ does not work like in bash
+2	= the outermost quotes should not be printed out 
+3	= output redirection does not work properly when not in the last piped command
+4	= non-existing env. variables should not be printed out
+5	= multiple output redirection is not implemented
+6	= incorrectly expanded env. variables
+7	= incorrectly handled pipe
+8	= $# is not handled :)
+9	= incorrectly executed cmd
+10	= '~' should expand to the home directory with cd
+
+//				"ls"
+//				$USER
+//				/bin/chmod
+//				/bin/ls
+//				/bin/ls
+//				/bin/ls
+//				/bin/ls
+//				/bin/ls
+//				/bin/ls -la
+//				/bin/ls doesnotexist
+//				/bin/pwd
+//				/binn/ls
+//				< notworking.txt
+//				< test4 cat
+//				< working.txt
+//				Multiple line error
+//				asdf ctrl-C
+//				asdf ctrl-D
+//				asdf ctrl-\
+//				awk
+//				awk '{ print }' /etc/passwd
+//				cat < test4
+//				cat ctrl-C
+//				cat ctrl-D
+//				cat | cat -e | cat
+//				cd .
+//				cd ..
+//				cd ..
+//				cd ../Desktop
+//				cd notworking
+//				cd poep
+//				ctrl-C
+//				ctrl-D
+//				ctrl-\
+//				hallo
+//				hallo
+//				hallo ma\"ran siemons
+//				hallo ma\ran siemons						Hij ziet de \ niet als escape, print gewoon \
+//				hallo$
+//				hoi
+//				ls
+//				ls
+//				ls -la
+//				ls -la
+//				ma\
+//				poep
+//				poep"
+//				pwd
+//				pwd
+//				pwd
+//				pwd
+//				pwd .
+//				pwd ..
+//				test
+//				unset PATH
+//				wc
+
+[0]				> newfile ; > working.txt
+[0]				cd .. ;pwd;/bin/ls;cd .. ;      pwd    ;/bin/ls;     cd notworking;     cd .
+[1]				"\$USER"
+[1]				\$?
+[1]				\$USER
+[1]				\poep
+[1]				hallo\$USER
+[1]				poep\'
+[1]				unset a ; env ; unset test ; unset test1 ; env
+[4, 9]			cd $IETSONBESTAANDS
+[4, 9]			cd $IETSONBESTAANDS
+[4]				cd $POEP $MEERPOEP ..
+[6]				cd $GEK ..
+[6]				cd $NOTHING $MORENOTHING ..
+[6]				hallo$USER
+[9]				"
+[9]				cd
+[9]				cd $IETSONBESTAANDS
+[10]			cd ~
+[10]			cd ~/
